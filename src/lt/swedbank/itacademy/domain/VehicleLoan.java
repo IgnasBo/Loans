@@ -1,5 +1,8 @@
 package lt.swedbank.itacademy.domain;
 
+import lt.swedbank.itacademy.util.DateUtil;
+
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Objects;
 
@@ -32,23 +35,9 @@ public class VehicleLoan extends Loan {
         this.model = model;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (this.getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        VehicleLoan o = (VehicleLoan) obj;
-//        return super.equals(o) &&
-//                Objects.equals(manufactured, o.manufactured) &&
-//                Objects.equals(maximumAge, o.maximumAge) &&
-//                Objects.equals(model, o.model);
-//    }
+    public int getAge() {
+        return (int) DateUtil.differenceInDays(new Date(), this.manufactured) / 365;
+    }
 
     @Override
     public boolean equals(Object o) {

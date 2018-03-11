@@ -1,5 +1,7 @@
-package lt.swedbank.itacademy.domain;
+package lt.swedbank.itacademy.initializers;
 
+import lt.swedbank.itacademy.domain.Loan;
+import lt.swedbank.itacademy.domain.LoanRiskType;
 import lt.swedbank.itacademy.util.DateUtil;
 
 import java.math.BigDecimal;

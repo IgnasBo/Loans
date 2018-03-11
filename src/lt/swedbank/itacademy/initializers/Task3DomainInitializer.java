@@ -1,5 +1,6 @@
-package lt.swedbank.itacademy.domain;
+package lt.swedbank.itacademy.initializers;
 
+import lt.swedbank.itacademy.domain.*;
 import lt.swedbank.itacademy.util.DateUtil;
 
 import java.math.BigDecimal;
@@ -101,8 +102,8 @@ public class Task3DomainInitializer implements DomainInitializer {
         loans[5].setTermInYears(2);
         ((CarLoan) loans[5]).setManufactured(DateUtil.getDateFromString("2010-01-01"));
         ((CarLoan) loans[5]).setMaximumAge(9);
-        ((CarLoan) loans[7]).setModel("Porsche Cayenne");
-        ((CarLoan) loans[6]).setEnginePower(100);
+        ((CarLoan) loans[5]).setModel("Porsche Cayenne");
+        ((CarLoan) loans[5]).setEnginePower(100);
         loans[5].setName("CarLoan 5");
 
         loans[6] = new CarLoan();
@@ -114,7 +115,7 @@ public class Task3DomainInitializer implements DomainInitializer {
         loans[6].setTermInYears(4);
         ((CarLoan) loans[6]).setManufactured(DateUtil.getDateFromString("2014-01-01"));
         ((CarLoan) loans[6]).setMaximumAge(15);
-        ((CarLoan) loans[7]).setModel("Audio A5");
+        ((CarLoan) loans[6]).setModel("Audio A5");
         ((CarLoan) loans[6]).setEnginePower(300);
         loans[6].setName("CarLoan 6");
 

@@ -1,5 +1,6 @@
-package lt.swedbank.itacademy.domain;
+package lt.swedbank.itacademy.initializers;
 
+import lt.swedbank.itacademy.domain.*;
 import lt.swedbank.itacademy.util.DateUtil;
 
 import java.math.BigDecimal;

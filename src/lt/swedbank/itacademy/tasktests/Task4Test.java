@@ -32,12 +32,14 @@ public class Task4Test {
   private static final float AREA = 120f;
   private static final String VILNIUS = "Vilnius";
 
-  public static void main(String[] args) {
+  public static void task4Test() {
     Loan loan = createLoan(TODAY, TERM_IN_YEARS, LOAN, PRICE, INTEREST_RATE, RISK_TYPE);
     VehicleLoan vehicleLoan
       = createVehicleLoan(TODAY, TERM_IN_YEARS, LOAN, PRICE, INTEREST_RATE, RISK_TYPE, YESTERDAY, MAXIMUM_AGE, MODEL);
     RealEstateLoan realEstateLoan = createRealEstateLoan(TODAY, TERM_IN_YEARS, LOAN, PRICE, INTEREST_RATE, RISK_TYPE,
       REAL_ESTATE_PURPOSE, AREA, VILNIUS);
+
+    System.out.println("\nTASK 4 TEST:\n");
 
     System.out.println("Testing equals()...");
 

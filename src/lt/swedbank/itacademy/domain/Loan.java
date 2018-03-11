@@ -15,11 +15,7 @@ public class Loan {
     private BigDecimal price;
     private LoanRiskType riskType;
 
-    public BigDecimal calculateInterest() {
-        return this.interestRate.multiply(this.price);
-    }
-
-    public BigDecimal getInterestRate() {
+    BigDecimal getInterestRate() {
         return this.interestRate;
     }
 
@@ -68,16 +64,20 @@ public class Loan {
     }
 
     public boolean isValid() {
-        if (DateUtil.addYears(this.creationDate, this.termInYears).getTime() > new Date().getTime()) {
-            return true;
-        } else {
-            return false;
-        }
+        return DateUtil.addYears(this.creationDate, this.termInYears).after(new Date());
+    }
+
+    public BigDecimal calculateTotalLoanCost() {
+        return this.price.add(this.calculateInterest());
+    }
+
+    private BigDecimal calculateInterest() {
+        return this.price.multiply(this.interestRate.divide(BigDecimal.valueOf(100)));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name,termInYears,creationDate,interestRate,price,riskType);
+        return Objects.hash(name, termInYears, creationDate, interestRate, price, riskType);
     }
 
     @Override

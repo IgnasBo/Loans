@@ -1,6 +1,5 @@
 package lt.swedbank.itacademy.domain;
 
-import java.math.BigDecimal;
 import java.util.Objects;
 
 public class RealEstateLoan extends Loan {
@@ -31,29 +30,6 @@ public class RealEstateLoan extends Loan {
     public void setPurpose(RealEstatePurpose purpose) {
         this.purpose = purpose;
     }
-
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (this.getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        RealEstateLoan o = (RealEstateLoan) obj;
-//        return super.equals(o) &&
-//                Objects.equals(area, o.area) &&
-//                Objects.equals(district, o.district) &&
-//                Objects.equals(purpose, o.purpose);
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(super.hashCode(), area, district, purpose);
-//    }
 
     @Override
     public boolean equals(Object o) {

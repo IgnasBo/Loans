@@ -5,7 +5,7 @@ import lt.swedbank.itacademy.domain.LoanRiskType;
 import lt.swedbank.itacademy.service.LoanService;
 
 public class Task3Test {
-  public static void main(String[] args) {
+  public static void task3Test() {
     LoanService loanService = new LoanService(
       createLoans(
         new LoanData("1", LoanRiskType.LOW_RISK),
@@ -16,6 +16,8 @@ public class Task3Test {
         new LoanData("6", LoanRiskType.NORMAL_RISK)
       )
     );
+
+    System.out.println("\nTASK 3 TEST:\n");
 
     for (LoanRiskType riskType : loanService.groupLoansByRiskType().keySet()) {
       System.out.print(riskType + " -> ");

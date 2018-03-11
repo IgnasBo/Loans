@@ -5,7 +5,7 @@ import lt.swedbank.itacademy.domain.VehicleLoan;
 import lt.swedbank.itacademy.service.LoanService;
 
 public class Task2Test {
-  public static void main(String[] args) {
+  public static void task2Test() {
     LoanService loanService = new LoanService(
       createLoans(
         "Scout Traveler",
@@ -17,6 +17,7 @@ public class Task2Test {
       )
     );
 
+    System.out.println("\nTASK 2 TEST:\n");
     for (String model : loanService.findVehicleModels()) {
       System.out.println(model);
     }
