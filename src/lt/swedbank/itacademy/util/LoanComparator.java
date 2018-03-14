@@ -20,6 +20,8 @@ public class LoanComparator implements Comparator<Loan> {
         return o1.getCreationDate().compareTo(o2.getCreationDate());
     }
 
+    //This is a good approach. If you would like to get rid of "switch" here is an example using mapped values -
+    // https://github.com/andrewmic/enum-comparator-example/blob/master/src/main/java/lt/itacademy/example/comparator/SwitchlessMappedValueBasedLoanRiskComparator.java
     private Integer calcRiskType(LoanRiskType riskType) {
         switch (riskType) {
             case LOW_RISK:
