@@ -23,7 +23,7 @@ public class LoanService implements LoanServiceInterface {
 
     @Override
     public BigDecimal calculateAverageLoanCost() {
-        //When working with BigDecimal, always provided constants for 0, 1, 10 (ex. BigDecimal.ZERO). Short answer: better performance.
+        //When working with BigDecimal, always use provided constants for 0, 1, 10 (ex. BigDecimal.ZERO). Short answer: better performance.
         BigDecimal loanSum = new BigDecimal("0");
         for (Loan loan : loans) {
             loanSum = loanSum.add(loan.calculateTotalLoanCost());
@@ -57,9 +57,9 @@ public class LoanService implements LoanServiceInterface {
     public Map<LoanRiskType, List<Loan>> groupLoansByRiskType() {
         Map<LoanRiskType, List<Loan>> loansGroupedByRiskType = new HashMap<>();
         //Hm.. almost correct :)
-        //Problem with this, is that your "loansGroupedByRiskType" will always have fixed size = "LoanRiskType.values().length".
-        //Now imagine, that you have 100 "LoanRiskType" values and 1 Loan of some "LoanRiskType".
-        //This approach works with test data, but it won't work in real life :)
+        //Problem with this, is that your "loansGroupedByRiskType" will always have a fixed size = "LoanRiskType.values().length".
+        //Now imagine that you have 100 "LoanRiskType" values and 1 Loan of some "LoanRiskType". What then?
+        //This approach works with test data, but not in the real life :)
         for (LoanRiskType riskType : LoanRiskType.values()) {
             loansGroupedByRiskType.put(riskType, getLoansByRiskType(riskType));
         }
