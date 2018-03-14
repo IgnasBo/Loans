@@ -23,6 +23,7 @@ public class LoanService implements LoanServiceInterface {
 
     @Override
     public BigDecimal calculateAverageLoanCost() {
+        //When working with BigDecimal, always provided constants for 0, 1, 10 (ex. BigDecimal.ZERO). Short answer: better performance.
         BigDecimal loanSum = new BigDecimal("0");
         for (Loan loan : loans) {
             loanSum = loanSum.add(loan.calculateTotalLoanCost());
@@ -32,6 +33,7 @@ public class LoanService implements LoanServiceInterface {
 
     @Override
     public BigDecimal calculateAverageLoanCost(LoanRiskType riskType) {
+        //Use BigDecimal.ZERO here as well
         BigDecimal loanSum = new BigDecimal("0");
         for (Loan loan : getLoansByRiskType(riskType)) {
             loanSum = loanSum.add(loan.calculateTotalLoanCost());
@@ -54,6 +56,10 @@ public class LoanService implements LoanServiceInterface {
     @Override
     public Map<LoanRiskType, List<Loan>> groupLoansByRiskType() {
         Map<LoanRiskType, List<Loan>> loansGroupedByRiskType = new HashMap<>();
+        //Hm.. almost correct :)
+        //Problem with this, is that your "loansGroupedByRiskType" will always have fixed size = "LoanRiskType.values().length".
+        //Now imagine, that you have 100 "LoanRiskType" values and 1 Loan of some "LoanRiskType".
+        //This approach works with test data, but it won't work in real life :)
         for (LoanRiskType riskType : LoanRiskType.values()) {
             loansGroupedByRiskType.put(riskType, getLoansByRiskType(riskType));
         }
@@ -172,7 +178,9 @@ public class LoanService implements LoanServiceInterface {
 
     }
 
+    //Missing from LoanServiceInterface
     public BigDecimal calculateAverageDepreciation() {
+        //Use BigDecimal.ZERO here as well
         BigDecimal averageDepreciation = new BigDecimal("0");
         int count = 0;
         for (Loan loan : loans) {
@@ -185,6 +193,7 @@ public class LoanService implements LoanServiceInterface {
         return averageDepreciation;
     }
 
+    //Missing from LoanServiceInterface
     public Set<Loan> prioritizeLoans() {
         Set<Loan> sortedLoans = new TreeSet<>(new LoanComparator());
         sortedLoans.addAll(Arrays.asList(loans));
